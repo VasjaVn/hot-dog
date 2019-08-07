@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Hot Dog Demo</title>
+        <link rel = "stylesheet" type = "text/css" href = "/css/style.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+        <script src="/js/hotdog.js"></script>
+    </head>
+
+    <body>
+        <h1>CRUD Hot Dog</h1>
+        <p id="error"></p>
+        <table>
+            <tr>
+                <td>ID:</td><td><input type="text" value="" id="hotDogId" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Name:</td><td><input type="text" value="" id="hotDogName"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Add" title="Add hot dog" onclick="addHotDog();">
+                    <input type="button" value="Remove" title="Remove hot dog" onclick="removeHotDog();">
+                    <input type="button" value="Edit" title="Edit hot dog" onclick="updateHotDog();">
+                </td>
+            </tr>
+        </table>
+
+        <div id="hotdog-list">
+            <input id="search" class="search" placeholder="Search" oninput="changeSearch();"/>
+            <button class="sort" data-sort="name">Sort</button>
+            <ul class="list">
+            </ul>
+        </div>
+    </body>
+</html>

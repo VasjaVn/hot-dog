@@ -1,0 +1,37 @@
+ul {
+    width: 250px;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+p {
+    display:inline;
+}
+
+p.name {
+    margin-left: 50px;
+    display:inline;
+}
+
+p#error {
+    color: red;
+    font-style: italic;
+}
+
+li {
+    padding: 2px;
+}
+
+li:nth-child(odd) {
+    background: grey;
+}
+
+li:nth-child(even) {
+    background: aqua;
+}
+
+li:hover {
+    cursor: pointer;
+    background: green;
+}
