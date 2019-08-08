@@ -1,3 +1,7 @@
+IP_ADDR='192.168.1.8'
+PORT='80'
+URL='http://' + IP_ADDR + ':' + PORT;
+
 String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
 };
@@ -8,7 +12,7 @@ if (window.XMLHttpRequest) {
     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-xmlhttp.open('GET', 'http://192.168.1.8:80/v1/hotdogs', true);
+xmlhttp.open('GET', URL + '/v1/hotdogs', true);
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(this.responseText);
@@ -32,7 +36,7 @@ function addHotDog() {
         setErrorMessage('Enter name of a hot dog for creating');
     } else {
         console.log(name);
-        xmlhttp.open('POST', 'http://192.168.1.8:80/v1/hotdog', true);
+        xmlhttp.open('POST', URL + '/v1/hotdog', true);
         xmlhttp.setRequestHeader('Content-type', 'application/json');
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -56,7 +60,7 @@ function addHotDog() {
 function removeHotDog() {
     var hotDogId = document.getElementById('hotDogId').value;
     if (!hotDogId.isEmpty()) {
-        xmlhttp.open('DELETE', 'http://192.168.1.8:80/v1/hotdog/' + hotDogId, true);
+        xmlhttp.open('DELETE', URL + '/v1/hotdog/' + hotDogId, true);
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(this.responseText);
@@ -83,7 +87,7 @@ function updateHotDog() {
     } else if (hotDogName.isEmpty()) {
         setErrorMessage('Name of a hot dog can not be empty for updating');
     } else {
-        xmlhttp.open('PUT', 'http://192.168.1.8:80/v1/hotdog', true);
+        xmlhttp.open('PUT', URL + '/v1/hotdog', true);
         xmlhttp.setRequestHeader('Content-type', 'application/json');
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
